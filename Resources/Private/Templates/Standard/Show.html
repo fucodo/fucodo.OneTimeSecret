@@ -1,0 +1,34 @@
+<f:layout name="Default" />
+
+<f:section name="Title">{secret.name}</f:section>
+
+<f:section name="Content">
+
+	<f:if condition="!{secret.seen}">
+		<f:then>
+			<f:form action="showSecretOnce" object="{secret}" objectName="secret">
+				<div class="alert alert-info">
+					<f:translate>Sie haben ein Geheimnis ("{secret.name}") zugeschickt bekommen, dieses ist bis zum {secret.expires -> f:format.date(format: 'd.m.y h:i:s')} verfügbar.</f:translate>
+				</div>
+				<f:form.button type="submit" class="btn btn-primary">
+					<f:translate>Geheimnis einmalig anzeigen</f:translate>
+				</f:form.button>
+			</f:form>
+		</f:then>
+		<f:else>
+			<f:form action="inform" object="{secret}" objectName="secret">
+				<div class="alert alert-warning">
+					Das Geheimnis
+					<f:if condition="{secret.name}">
+						("{secret.name}")
+					</f:if>
+					wurde am {secret.seen -> f:format.date(format: 'd.m.Y')} bereits angezeigt.
+					Wenn das nicht korrekt ist, können Sie hier den Absender informieren.
+				</div>
+				<f:form.button type="submit" class="btn btn-primary">
+					<f:translate>Absender informieren</f:translate>
+				</f:form.button>
+			</f:form>
+		</f:else>
+	</f:if>
+</f:section>

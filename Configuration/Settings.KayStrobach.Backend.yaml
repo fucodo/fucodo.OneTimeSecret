@@ -1,0 +1,16 @@
+KayStrobach:
+  Backend:
+    Backend:
+      Menu:
+        Tools:
+          label: Werkzeuge
+          icon: bootstrap-wrench-adjustable-circle
+          subItems:
+            secrets:
+              label: Secrets
+              icon: bootstrap-incognito
+              iconBackground: '#00BD70'
+              package: fucodo.OneTimeSecret
+              controller: Backend
+              action: index
+              position: start

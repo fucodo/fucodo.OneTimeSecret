@@ -1,0 +1,20 @@
+{namespace search=KayStrobach\VisualSearch\ViewHelpers}
+{namespace search=KayStrobach\VisualSearch\ViewHelpers}
+{namespace b=KayStrobach\Backend\ViewHelpers}
+{namespace i=KayStrobach\IconRegistry\ViewHelpers}
+{namespace media=Neos\Media\ViewHelpers}
+
+<b:be.setTitle>Secrets</b:be.setTitle>
+<b:be.button.closeButton action="index"/>
+<b:be.button.saveButton />
+<b:be.setTitleInfo>Eintrag anlegen</b:be.setTitleInfo>
+
+<f:form action="create" objectName="secret" object="{secret}" id="globalForm">
+	<f:render partial="Components/Panel" arguments="{heading:'Secret'}" contentAs="body">
+		<f:render partial="Form/Text" arguments="{property:'name', label:'Name des Secrets'}" />
+		<f:render partial="Form/DateTime" arguments="{property:'expires', label:'Ablauf des Secrets'}" />
+		<f:render partial="Form/Textarea" arguments="{property:'secret', label:'Secret'}" />
+		<f:render partial="Form/Textarea" arguments="{property:'recipients', label:'Empfänger', hint:'Ein Empfänger pro Zeile'}" />
+		<f:render partial="Form/Textarea" arguments="{property:'informMailWhenSeen', label:'Informieren, wenn das Secret angeschaut wird', hint:'Ein Empfänger pro Zeile'}" />
+	</f:render>
+</f:form>

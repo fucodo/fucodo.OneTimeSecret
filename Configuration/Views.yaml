@@ -1,0 +1,9 @@
+-
+  requestFilter: 'isPackage("fucodo.OneTimeSecret") && isFormat("html")'
+  options:
+    layoutRootPaths:
+      'fucodo.OneTimeSecret/Layouts':  'resource://fucodo.OneTimeSecret/Private/Layouts'
+    partialRootPaths:
+      'fucodo.OneTimeSecret/Partials':    'resource://fucodo.OneTimeSecret/Private/Partials'
+      'KayStrobach.VisualSearch/Partials':  'resource://KayStrobach.VisualSearch/Private/Partials'
+      'KayStrobach.Bootstrap':                           'resource://KayStrobach.Bootstrap/Private/Partials'

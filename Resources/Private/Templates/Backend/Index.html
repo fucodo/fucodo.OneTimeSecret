@@ -1,0 +1,69 @@
+{namespace search=KayStrobach\VisualSearch\ViewHelpers}
+{namespace search=KayStrobach\VisualSearch\ViewHelpers}
+{namespace b=KayStrobach\Backend\ViewHelpers}
+{namespace i=KayStrobach\IconRegistry\ViewHelpers}
+{namespace media=Neos\Media\ViewHelpers}
+
+<b:be.setTitle>Secrets</b:be.setTitle>
+<b:be.setTitleInfo>{objects -> f:count()} Einträge</b:be.setTitleInfo>
+
+<b:be.button.addButton label="anlegen" icon="add" action="new"/>
+
+<f:if condition="{objects -> f:count()}">
+	<f:then>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						Name
+					</th>
+					<th>
+						Angelegt
+					</th>
+					<th>
+						Ablauf
+					</th>
+					<th>
+						Angezeigt
+					</th>
+					<th>
+						Informiere beim Anzeigen
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<f:for each="{objects}" as="object">
+					<tr>
+						<th>
+							{object.name}
+						</th>
+						<th>
+							<f:link.action action="edit" arguments="{secret:object}">
+								{object.created -> f:format.date(format: 'd.m.Y H:i')}
+							</f:link.action>
+						</th>
+						<th>
+							{object.expires -> f:format.date(format: 'd.m.Y H:i')}
+						</th>
+						<th>
+							<f:if condition="{object.seen}">
+								{object.seen -> f:format.date(format: 'd.m.Y H:i')}
+							</f:if>
+						</th>
+						<th>
+							{object.informMailWhenSeen}
+						</th>
+						<th>
+							<f:link.action action="show" controller="Standard" arguments="{secret:object}" target="_blank" class="btn btn-success">Öffnen</f:link.action>
+						</th>
+					</tr>
+				</f:for>
+			</tbody>
+		</table>
+	</f:then>
+	<f:else>
+		<div class="alert alert-info">
+			Derzeit gibt es keine Secrets
+		</div>
+	</f:else>
+</f:if>

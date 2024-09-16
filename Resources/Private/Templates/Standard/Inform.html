@@ -1,0 +1,15 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Index view of Standard controller</f:section>
+
+<f:section name="Content">
+	<div class="alert alert-info">
+		<p>
+			Kontaktinformationen:
+		</p>
+	</div>
+	<blockquote class="blockquote rounded border border-3">
+		<pre>{secret.informMailWhenSeen}</pre>
+	</blockquote>
+	<f:link.action action="show" arguments="{secret:secret}" class="btn btn-success">Zurück</f:link.action>
+</f:section>

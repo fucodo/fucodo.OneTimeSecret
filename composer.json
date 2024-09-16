@@ -1,0 +1,20 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "name": "fucodo/onetimesecret",
+    "require": {
+        "neos/flow": "*",
+        "kaystrobach/backend": "*",
+        "kaystrobach/bootstrap": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "fucodo\\OneTimeSecret\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "fucodo.OneTimeSecret"
+        }
+    }
+}

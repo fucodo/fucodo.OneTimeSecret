@@ -25,7 +25,7 @@ class BackendController extends AbstractPageRendererController
     }
 
     /**
-     * @Flow\Validate(validationGroups={"Default", "Create"})
+     * @Flow\ValidationGroups(validationGroups={"Default", "Create"})
      * @param Secret $secret
      * @return void
      * @throws \Neos\Flow\Mvc\Exception\StopActionException
